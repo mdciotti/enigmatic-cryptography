@@ -1,110 +1,361 @@
-html { margin: 20px }
-body {
-  margin: 0 auto;
-  font-family: 'Baskerville', Georgia, Times, serif;
-  font-size: 20px;
-  line-height: 30px;
-  padding: 15px;
-  width: 720px;
+@import 'font/ostrich/stylesheet.css';
 
+@import 'font/roboto/stylesheet.css';
+.sans {
+  font-family: 'Roboto', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
-header, footer, section, article {
-	display: block;
+.serif {
+  font-family: 'FreeSerif', 'Baskerville', 'Book Antiqua', georgia, serif;
 }
-#content {
+@media screen and (min-width: 960px) {
+  #panel {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 330px;
+    height: 100%;
+    border-right: 1px solid #cccccc;
+    border-bottom: none;
+    background: #eeeef8;
+  }
+  #panel header p,
+  #panel footer {
+    text-align: center !important;
+  }
+  #panel nav ul {
+    text-align: center !important;
+  }
+  #panel nav ul li {
+    display: display: block !important;
+  }
+  #container {
+    margin-left: 331px;
+  }
+  #container .pagetitle {
+    max-width: 500px;
+  }
+  #container .pagebody {
+    max-width: 500px;
+  }
+  .post {
+    padding: 64px;
+  }
+  .post:first-child {
+    border-top: none !important;
+  }
+  .post article {
+    max-width: 500px;
+  }
+  .post .body p {
+    font-size: 20px !important;
+  }
 }
-#by {
-	font-style: italic;
-  margin-right: 5px;
-	font-size: 28px;
+@media screen and (min-width: 580px) {
+  #panel header {
+    padding: 4px 32px !important;
+    margin-bottom: 16px;
+  }
+  #panel header h1 a {
+    margin: 0 32px 16px 0 !important;
+    float: left;
+  }
+  #panel header p {
+    margin-top: 64px !important;
+    font-size: 24px;
+    text-align: left;
+  }
+  #panel nav ul {
+    text-align: left;
+  }
+  #panel nav ul li {
+    display: inline-block;
+    margin-right: 16px;
+  }
+  #panel footer {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  #container .pagetitle {
+    border-top: 1px solid #cccccc;
+    font-size: 128px;
+    padding-left: 32px;
+    margin-bottom: -16px;
+    clear: both;
+  }
+  #container .pagebody {
+    padding: 32px;
+  }
+  #container .pagebody ul {
+    font-size: 20px;
+    padding: 0 0 0 32px;
+  }
+  #container .pagebody .date {
+    font-size: 16px;
+  }
+  .post {
+    clear: both;
+    padding: 32px;
+    border-top: 1px solid #cccccc;
+  }
+  .post header h1 {
+    font-size: 32px;
+  }
+  .post header .author,
+  .post header .date {
+    font-size: 16px;
+  }
+  .post .body {
+    font-size: 20px;
+  }
 }
-#caption {
-	position: absolute;
-	font-size: 24px;
-	margin: -135px 0 0 70px;
+@media screen and (max-width: 579px) {
+  #panel header p,
+  #panel footer {
+    text-align: center;
+  }
+  #panel nav ul li {
+    display: inline-block;
+    margin: 0 8px;
+  }
+  #panel footer {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  #container .pagetitle {
+    border-top: 1px solid #cccccc;
+    font-size: 96px;
+    padding-left: 24px;
+    margin-bottom: -12px;
+    clear: both;
+  }
+  #container .pagebody {
+    padding: 24px;
+  }
+  #container .pagebody ul {
+    font-size: 16px;
+    padding: 0 0 0 24px;
+  }
+  #container .pagebody .date {
+    font-size: 12px;
+  }
+  .post {
+    padding: 24px;
+    border-top: 1px solid #cccccc;
+  }
+  .post header h1 {
+    font-size: 24px;
+  }
+  .post header .author,
+  .post header .date {
+    font-size: 12px;
+  }
+  .post .body {
+    font-size: 16px;
+  }
 }
-#path {
-	color: #b53131;
-}
-.date {
-  font-style: italic;
-  float: right;
-  line-height: 43px;
-  margin-right: 30px;
-}
-a {
-  color: #b83000;
-}
-h1 a {
-  color: black;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-body > header > h1 {
-	border-left: 30px solid black;
-	padding-left: 30px;
-  font-size: 201px;
-  margin: 100px 0 15px 0;
-  font-weight: normal;
-}
-.post header {
-	margin-bottom: 10px;
-}
-.post .body p:first-child {
-	margin-top: 0;
-}
-.post .body p:last-child {
-	margin-bottom: 0;
-}
-.post {
-	margin-bottom: 30px;
-}
-.post:last-child {
-  margin-bottom: 10px;
-}
-.post p {
-  margin: 10px 0;
-}
-.post .more {
-  margin-top: -10px;
-  margin-right: 30px;
-  font-style: italic;
-  text-align: right;
-}
-.more a {
-  text-decoration: none;
-}
-.more a:hover { text-decoration: underline }
-body > header {
-	display: block;
-	padding-top: 30px;
-	line-height: 180px;
-	margin-bottom: 20px;
-}
-h1, h2, h3, h4 {
-  display: inline;
-  margin: 0;
-  font-weight: 600;
-}
-ul, li {
-  list-style-type: none;
-}
-code {
-  font-family: 'Anonymous Pro', 'Bitstream Vera Sans', 'Monaco', Courier, mono;
-}
-pre {
-  padding: 20px;
-}
-blockquote {
-  font-style: italic;
-}
-
-body > footer {
-  text-align: left;
-  margin-left: 10px;
-	font-style: italic;
-  font-size: 18px;
-  color: #888;
+@media screen {
+  html {
+    min-height: 100%;
+  }
+  body {
+    padding: 0;
+    margin: 0;
+    background: #eeeef8;
+    min-height: 100%;
+    font-family: 'Roboto', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    text-rendering: optimizeLegibility;
+    min-width: 320px;
+  }
+  a {
+    color: #00b7ff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  h1 {
+    font-family: 'Roboto', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    line-height: 1;
+    color: #333333;
+  }
+  p {
+    line-height: 1.5;
+  }
+  #panel {
+    background: #eeeef8;
+  }
+  #panel header {
+    padding: 24px 24px 0 24px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  #panel header h1 a {
+    height: 236px;
+    display: block;
+    position: relative;
+    text-decoration: none;
+    margin: 0 auto;
+    /*left: 50%;*/
+  
+    width: 266px;
+    /*margin-left: -133px;*/
+  
+  }
+  #panel header h1 a span.open {
+    background-image: url('../img/brace-top.png');
+    top: 0;
+    margin: 0 auto;
+  }
+  #panel header h1 a span.close {
+    background-image: url('../img/brace-bottom.png');
+    bottom: 0;
+    margin: 0 auto;
+  }
+  #panel header h1 a span.open,
+  #panel header h1 a span.close {
+    outline: none;
+    width: 266px;
+    height: 70px;
+    display: block;
+    position: absolute;
+    z-index: 0;
+    -webkit-transition: all 0.1s ease-out;
+    -moz-transition: all 0.1s ease-out;
+    -ms-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+  }
+  #panel header h1 a span.logotype {
+    display: block;
+    position: absolute;
+    top: 72px;
+    z-index: 1;
+  }
+  #panel header h1 a span.top {
+    font-family: 'OstrichSansBold';
+    font-weight: 400;
+    font-size: 75px;
+    line-height: 0.6;
+    margin-left: 4px;
+    margin-top: 18px;
+    display: block;
+  }
+  #panel header h1 a span.bottom {
+    display: block;
+    letter-spacing: 5px;
+    font-family: 'Roboto', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    font-size: 26px;
+    color: #333333;
+  }
+  #panel header h1 a:hover span.open {
+    top: -10px;
+  }
+  #panel header h1 a:hover span.close {
+    bottom: -10px;
+  }
+  #panel header p {
+    font-family: 'FreeSerif', 'Baskerville', 'Book Antiqua', georgia, serif;
+    font-style: italic;
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 1;
+    color: #666666;
+    cursor: default;
+    text-transform: lowercase;
+    margin: 0;
+  }
+  #panel nav {
+    text-align: center;
+  }
+  #panel nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+  }
+  #panel footer {
+    text-transform: lowercase;
+    font-family: 'FreeSerif', 'Baskerville', 'Book Antiqua', georgia, serif;
+    cursor: default;
+    color: #666666;
+    line-height: 1.2;
+    margin-top: 16px;
+    font-style: italic;
+  }
+  #container .pagetitle {
+    margin: 0;
+    line-height: 1;
+    color: #d0d0d7;
+    font-family: 'FreeSerif', 'Baskerville', 'Book Antiqua', georgia, serif;
+    font-style: italic;
+    text-transform: lowercase;
+    cursor: default;
+  }
+  #container .pagebody ul {
+    line-height: 1.5;
+    margin: 0;
+  }
+  #container .pagebody #archives {
+    list-style-type: none;
+  }
+  #container .pagebody .date {
+    color: #9999a8;
+  }
+  .post {
+    padding: 24px;
+  }
+  .post header h1 {
+    letter-spacing: -1px;
+    font-weight: 900;
+    /*background-color: @blue;
+  				color: #eeeeee;
+  				padding: 12px 16px;
+  				margin-left: -24px;
+  				margin-right: -24px;*/
+  
+  }
+  .post header .author {
+    font-weight: 600;
+    text-transform: uppercase;
+    float: left;
+    display: block;
+    color: #666666;
+  }
+  .post header .author:before {
+    content: 'by ';
+    font-weight: 300;
+    text-transform: lowercase;
+  }
+  .post header .date {
+    font-weight: 300;
+    text-align: right;
+    display: block;
+    /*text-transform: uppercase;*/
+  
+    color: #666666;
+  }
+  .post .body {
+    /*p:first-child:first-letter {
+  				font-size: 2.6em;
+  				line-height: 1;
+  				margin-right: 8px;
+  				margin-top: 10px;
+  				font-weight: 800;
+  				float: left;
+  			}*/
+  
+  }
+  .post .body p {
+    /*text-align: justify;*/
+  
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
 }

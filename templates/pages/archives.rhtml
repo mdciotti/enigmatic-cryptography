@@ -1,11 +1,13 @@
-<h1><%= @path %></h1>
-<ul>
-  <% if archives.length > 0 %>
-    <% for entry in archives %>
-      <li>
-        <a href="<%= entry.path %>"><%= entry.title %></a>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
-
+<h1 class="pagetitle"><%= @path %></h1>
+<div class="pagebody">
+	<ul id="archives">
+		<% if archives.length > 0 %>
+			<% for entry in archives %>
+				<li>
+					<span class="date">[<%= entry.date %>]</span>
+					<a href="<%= entry.path %>"><%= entry.title %></a>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
+<div>

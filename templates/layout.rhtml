@@ -1,18 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-    <link rel="alternate" type="application/atom+xml" title="<%= title %> - feed" href="/index.xml" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
-    <title><%= title %></title>
-  </head>
-  <body>
-    <section>
-      <%= yield %> 
-    </section>
-    <footer>
-      powered by <a href="http://cloudhead.io/toto">toto</a>
-    </footer>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<title><%= title %></title>
+		<meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon-precomposed" href="/img/icon_266.png" />
+		<link rel="stylesheet" type="text/css" href="/css/main.css" />
+		<link rel="alternate" type="application/atom+xml" title="<%= title %> - feed" href="/index.xml" />
+		<link href="http://roboto-webfont.googlecode.com/svn/trunk/roboto.all.css" rel="stylesheet" type="text/css">
+		<!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,800,400,400italic' rel='stylesheet' type='text/css'>-->
+	</head>
+	<body>
+		<div id="panel">
+			<header>
+				<h1 id="logo"><a href="/"><span class="open"><img src="/img/brace-top.png" height="70" width="266" /></span><span class="logotype"><span class="top"><%= @config[:title].split(' ')[0] %></span> <span class="bottom"><%= @config[:title].split(' ')[1] %></span></span><span class="close"><img src="/img/brace-bottom.png" height="70" width="266" /></span></a></h1>
+				<p><%= @config[:desc] %></p>
+			</header>
+			<nav>
+				<ul>
+					<li><a href="/">All</a></li>
+					<li><a href="/archives">Archives</a></li>
+					<li><a href="/about">About</a></li>
+				</ul>
+			</nav>
+			<footer>
+				<%= @config[:footer] %>
+			</footer>
+		</div>
+		<div id="container">
+			<%= yield %>
+		</div>
+	</body>
 </html>
-
