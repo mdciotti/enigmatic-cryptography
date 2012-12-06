@@ -1,0 +1,282 @@
+// CONTENT //
+
+#container.nav-side section {
+	@include roundCorners(0, $unit / 2, $unit / 2, $unit / 2);
+	margin-left: 10 * $unit;
+	
+	h1 {
+		@include roundCorners(0, $unit / 2, 0, 0);
+	}
+}
+
+section {
+	border: 1px solid $borderGrey;
+	@include roundAll($unit / 2);
+
+	h1 {
+		@include roundTop($unit / 2);
+		@include engrave($lightBlue, lighten($lightBlue, 37.5%));
+		background: lighten($lightBlue, 32.5%);
+		@include linearGradient(top, lighten($lightBlue, 35%), lighten($lightBlue, 30%));
+		font-size: 1.75 * $unit;
+		font-weight: 700;
+		padding: (1.25 * $unit) $unit;
+		border-top: 1px solid lighten($lightBlue, 50%);
+		border-bottom: 1px solid $borderGrey;
+		@include boxSizing(border-box);
+		cursor: default;
+	}
+	.content {
+		@include roundBottom($unit / 2);
+	}
+}
+
+.filterbar {
+	@include toolbar;
+	list-style-type: none;
+	font-size: 0.8em;
+	cursor: default;
+
+	li {
+		@include engrave($medGrey, $veryLightGrey);
+		display: inline-block;
+		margin-left: 8px;
+		margin-top: 4px;
+		margin-bottom: 4px;
+
+		a {
+			padding: 2px ($unit / 2);
+			@include roundAll($unit);
+			text-transform: none;
+			text-decoration: none;
+			border: 1px solid transparent;
+			outline: none;
+		}
+
+		&:hover a, & a:focus {
+			border: 1px solid fade-out($medGrey, 0.5);
+			box-shadow: inset 0 1px #FFFFFF, 0 1px #FFFFFF;
+		}
+		&:active a {
+			@include inset;
+			background-color: fade-out($medGrey, 0.5);
+			border: 1px solid $medGrey;
+			color: $darkGrey;
+			text-shadow: 0 1px 1px lighten($medGrey, 37.5%);
+		}
+		&.selected a {
+			background: lighten($lightBlue, 12.5%);
+			border: 1px solid darken($lightBlue, 12.5%);
+			@include inset($scale: 0.5);
+			color: $darkGrey;
+			text-shadow: 0 1px 1px fade-out(lighten($lightBlue, 25%), 0.75);
+		}
+	}
+}
+.raw {
+	background: #FFFFFF;
+}
+.content {
+	background: #FFFFFF;
+	padding: $unit 0;
+	font-size: $unit;
+	
+	h2, h3, h4, h5, h6 {
+		padding: (2 * $unit) (2 * $unit) (0.5 * $unit) (2 * $unit);
+		@include heading;
+		
+		&:first-child {
+			padding-top: 0.5 * $unit;
+		}
+	}
+
+	h2 { font-size: 1.5em; }
+	h3 { font-size: 1.25em; }
+
+	.tagbar {
+		list-style-type: none;
+		padding: 0 !important;
+		font-size: 0.8em;
+
+		li {
+			display: inline-block;
+			margin-right: $unit / 2;
+			
+			a {
+				display: block;
+				@include button;
+				@include roundAll(3px);
+				// box-shadow: 0 2px $unit rgba(0,0,0,0.75);
+				position: relative;
+				
+				&:before {
+					content: attr(data-tag) ": ";
+					color: $medGrey;
+					/*display: block;
+					position: absolute;
+					left: 0;
+					@include button;
+					@include roundLeft(3px);*/
+				}
+			}
+		}
+	}
+	
+	p {
+		padding: (0.5 * $unit) (2 * $unit);
+		line-height: 1.5;
+		//font-size: 16px;
+		text-align: justify;
+	}
+	
+	ul, ol {
+		margin: 0 (2 * $unit);
+		padding-left: 1.5em;
+		line-height: 1.5;
+	}
+	
+	blockquote {
+		background: $veryLightGrey;
+		border: 4px solid $lightGrey;
+		margin: $unit (2 * $unit);
+		padding: $unit $unit $unit (4 * $unit);
+		@include serif;
+		font-size: 18px;
+		font-style: italic;
+		line-height: 1.5;
+		color: $medGrey;
+		position: relative;
+		
+		&::before {
+			content: '\201C';
+			font-size: 8em;
+			position: absolute;
+			top: -0.25em;
+			left: 0;
+			color: $lightGrey;
+		}
+		&[cite]::after {
+			content: "\2014" attr(cite);
+			display: block;
+			text-align: right;
+			font-size: 0.8em;
+		}
+		&[cite][data-url]::after {
+			content: "\2014" attr(cite) " <" attr(data-url) ">";
+			display: block;
+			text-align: right;
+			font-size: 0.8em;
+		}
+	}
+	
+	pre {
+		margin: $unit 0;
+		padding: $unit (2 * $unit);
+		background: $veryLightGrey;
+		border-top: 4px solid $lightGrey;
+		border-bottom: 4px solid $lightGrey;
+	}
+
+	table {
+		@include noselect;
+
+		width: 100%;
+		font-size: 0.875em;
+		
+		tr {
+			// border-top: 1px solid transparent;
+			border-bottom: 1px solid $lightGrey;
+		}
+		td, th {
+			vertical-align: middle;
+			padding: $unit / 2;
+			line-height: 1.2;
+		}
+		td:first-child, th:first-child {
+			padding-left: 2 * $unit !important;
+		}
+		td:last-child, th:last-child {
+			padding-right: 2 * $unit !important;
+		}
+		th.action {
+			// visibility: hidden;
+			color: transparent;
+		}
+		td.action {
+			text-align: center;
+		}
+		td.numeric, th.numeric, td.percent, td.currency {
+			text-align: right;
+		}
+		td.percent:before {
+			content: '%';
+			float: left;
+		}
+		td.currency:before {
+			content: '$';
+			float: left;
+		}
+		td.action a {
+			display: inline-block;
+			@include buttonStyle;
+			//border: 1px solid transparent;
+			margin: 0 1px !important;
+		}
+		tr.selected td.action a {
+			@include button($lightGrey, $darkGrey, $lightBlue);
+			margin: 0 !important;
+		}
+		thead {
+			font-size: 0.8em;
+			color: $medGrey;
+
+			th {
+				text-align: left;
+				cursor: default;
+			}
+		}
+		tbody {
+			tr {
+				// border-top: 1px solid #FFFFFF;
+				
+				&:hover {
+					background: $veryLightGrey;
+				}
+				&.selected {
+					@include itemFocus;
+					box-shadow: none;
+					border-bottom: 1px solid lighten($lightBlue, 12.5%);
+					// border-bottom: none;
+				}
+			}
+		}
+		
+		&.rate-quote {
+			td, th {
+				padding: ($unit / 2) (1.5 * $unit);
+			}
+		}
+		&.first-row-units {
+			tbody tr td:before {
+				content: '';
+			}
+			tbody tr:first-child td.percent:before {
+				content: '%';
+				float: left;
+			}
+			tbody tr:first-child td.currency:before {
+				content: '$';
+				float: left;
+			}
+		}
+	}
+	
+	div.more {
+		text-align: center;
+		margin: $unit 0;
+		
+		button {
+			margin-right: $unit;
+		}
+	}
+}

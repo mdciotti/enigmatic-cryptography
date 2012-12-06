@@ -1,0 +1,139 @@
+// MIXINS & FUNCTIONS //
+
+@function boxHighlight ($color) {
+	@return inset 0 1px lighten($color, 25%);
+}
+
+@mixin boxHighlight ($color, $engrave) {
+	box-shadow: boxHighlight($color),
+				0 1px $engrave;
+}
+@mixin simpleBoxShadow ($vOffset: 2px, $blur: 4px, $color: rgba(#000000, 0.25)) {
+	@include boxShadow(false, 0, $vOffset, $blur, 0, $color);
+}
+@mixin buttonStyle { // This is just for making normal links appear like buttons without changing size
+	padding: ($unit / 4) ($unit / 2) !important;
+	font-weight: 600;
+}
+@mixin button ($color: $lightGrey, $text: $darkGrey, $bg: #FFFFFF) {
+	@include buttonStyle;
+	@include sans;
+	@include noselect;
+	@include roundAll($unit / 4);
+	@include boxHighlight($color, $bg);
+	@include engrave($text, $color);
+	background: $color;
+	@include linearGradient(top, lighten($color, 6.25%), darken($color, 6.25%));
+	
+	border: 1px solid darken($bg, 25%);
+	padding: ($unit / 4) ($unit / 2);
+	text-decoration: none !important;
+	display: inline-block;
+	line-height: 1;
+	margin: 0;
+	cursor: pointer;
+	outline: none;
+	font-size: 100%;
+
+	&:hover {
+		@include linearGradient(top, lighten($color, 12.5%), $color);
+	}
+	&:focus {
+		@include simpleBoxShadow(0, 4px, $lightBlue);
+	}
+	&:active {
+		$button_bg: darken($color, 25%);
+		
+		@include engrave($text, $button_bg, 12.5%);
+		@include inset(darken($bg, 12.5%), 0.5);
+		
+		background: $button_bg;
+	}
+}
+@mixin dot($color) {
+	@include linearGradient(top, $color, darken($color, 12.5%));
+	@include roundAll($unit);
+	width: $unit;
+	height: $unit;
+	display: inline-block;
+	box-shadow: boxHighlight($color);
+	border: 1px solid darken($color, 25%);
+}
+@mixin engrave ($color, $bg, $amount: 25%) {
+	$isDark: lightness($color) > lightness($bg);
+	$shadowOffset: if($isDark, -1px, 1px);
+	$shadowColor: if($isDark, darken($bg, $amount), lighten($bg, $amount));
+	
+	@include textShadow(0, $shadowOffset, 0, $shadowColor);
+	color: $color !important;
+}
+@mixin fabric {
+	background: #333333 url(/img/fabric.jpg);
+	box-shadow: inset 0 2px $unit rgba(0,0,0,0.75);
+}
+@mixin heading {
+	// @include sansCond;
+	@include sans;
+	
+	font-weight: 700;
+	color: $lightBlue;
+	cursor: default;
+}
+@mixin inset ($bgcolor: #FFFFFF, $scale: 1) {
+	// box-shadow: inset 0 1px 3px fade-out(#333333, 0.4),
+	// 			0 1px lighten($bgcolor, 12.5%);
+	$blur: 0.8em;
+	$size: -0.4em;
+	$newBlur: $blur - (1 - $scale) * ($blur + $size);
+	box-shadow: inset 0 0.3em $newBlur -0.4em #000000,
+		0 1px lighten($bgcolor, 12.5%);
+}
+@mixin itemFocus {
+	@include linearGradient(top, $lightBlue, ($lightBlue - $darkGrey));
+	box-shadow: boxHighlight($lightBlue);
+	
+	background-color: $lightBlue;
+	// border-top-color: lighten($lightBlue, 25%);
+	// border-bottom-color: darken($lightBlue, 25%);
+	color: $veryLightGrey !important;
+	// text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 -1px darken($lightBlue, 25%);
+
+	a:link {
+		color: lighten($lightBlue, 25%);
+	}
+
+	mark {
+		box-shadow: 0 1px 1px rgba(0,0,0,0.25);
+	}
+}
+@mixin sans {
+	font-family: 'Open Sans', 'Segoe WP', 'Segoe UI', 'Lucida Grande', Lucida, 'Helvetica Neue', Helvetica, 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+	// font-family: 'Segoe UI', 'Lucida Grande', Lucida, 'Helvetica Neue', Helvetica, 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+}
+@mixin sansCond {
+	font-family: 'Open Sans Condensed', 'Segoe WP', 'Segoe UI', 'Lucida Grande', Lucida, 'Helvetica Neue', Helvetica, 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+}
+@mixin serif {
+	font-family: Georgia, serif;
+}
+@mixin toolbar {
+	@include noselect;
+	@include linearGradient(top, $veryLightGrey, $lightGrey);
+	// @include boxHighlight($veryLightGrey);
+	
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid $borderGrey;
+	padding: ($unit / 2) $unit;
+	font-weight: 600;
+	
+	&[data-label]::before {
+		@include engrave($medGrey, $veryLightGrey);
+		
+		content: attr(data-label);
+		text-transform: uppercase;
+		font-weight: 700;
+		// float: left;
+		// height: 100px;
+	}
+}

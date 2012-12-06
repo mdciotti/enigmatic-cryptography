@@ -1,0 +1,177 @@
+// SCSS Utilities //
+
+@function multi($bools, $yep, $args) {
+	$args1: unquote("zip(#{$bools}, #{$args})");
+	$args2: zip($args);
+	$arguments: unquote("");
+	
+	@for $i from 1 through length($args1) {
+		$argn: if(nth(nth($args1, $i), 1), append($yep, nth($args2, $i), space), nth($args2, $i));
+		$arguments: if($i <= 1, $argn, unquote("#{$arguments}, #{$argn}"));
+	}
+	
+	@return $arguments;
+}
+
+@mixin appearance ($prop: default) {
+	-webkit-appearance: $prop;
+	-moz-appearance: $prop;
+	-ms-appearance: $prop;
+	-o-appearance: $prop;
+	appearance: $prop;
+}
+@mixin boxShadow ($inset: false, $x: 0, $y: 0, $blur: 0, $expand: 0, $color: rgba(0,0,0,0)) {
+	// $args: zip($inset, $x, $y, $blur, $expand, $color);
+	// $args2: zip($x, $y, $blur, $expand, $color);
+	// $arguments: unquote("");
+	
+	// @for $i from 1 through length($args) {
+	// 	$argn: if(nth(nth($args, $i), 1), append(inset, nth($args2, $i), space), nth($args2, $i));
+	// 	$arguments: if($i <= 1, $argn, unquote("#{$arguments}, #{$argn}"));
+	// }
+	$args: $x, $y, $blur, $expand, $color;
+	$arguments: multi($inset, inset, $args);
+	
+	-webkit-box-shadow: $arguments;
+	-moz-box-shadow: $arguments;
+	box-shadow: $arguments;
+	
+	$firstColor: nth($color, 1);
+	$opacity: opacity($firstColor);
+	@if (not nth($inset, 1)) {
+		filter: unquote("progid:DXImageTransform.Microsoft.Blur(PixelRadius=#{$blur},MakeShadow=true,ShadowOpacity=#{$opacity})");
+	}
+}
+@mixin boxSizing ($prop: content-box) {
+	-webkit-box-sizing: $prop;
+	-moz-box-sizing: $prop;
+	box-sizing: $prop;
+}
+@mixin clearfix () {
+	&::after{
+		display: block;
+		width: 0;
+		height: 0;
+		clear: both;
+		content: '';
+	}
+}
+@mixin flex ($flex) {
+	-webkit-box-flex: $flex;
+	-moz-box-flex: $flex;
+	box-flex: $flex;
+}
+@mixin flexbox ($orient: horizontal, $pack: start, $align: start, $direction: normal, $flex: 0, $lines: single, $flex-group: 1, $ordinal-group: 1) {
+	display: -webkit-box;
+	-webkit-box-orient: $orient;
+	-webkit-box-pack: $pack;
+	-webkit-box-align: $align;
+	-webkit-box-direction: $direction;
+	-webkit-box-flex: $flex;
+	-webkit-box-lines: $lines;
+	-webkit-box-flex-group: $flex-group;
+	-webkit-box-ordinal-group: $ordinal-group;
+
+	display: -moz-box;
+	-moz-box-orient: $orient;
+	-moz-box-pack: $pack;
+	-moz-box-align: $align;
+	-moz-box-direction: $direction;
+	-moz-box-flex: $flex;
+	-moz-box-lines: $lines;
+	-moz-box-flex-group: $flex-group;
+	-moz-box-ordinal-group: $ordinal-group;
+
+	display: box;
+	box-orient: $orient;
+	box-pack: $pack;
+	box-align: $align;
+	box-direction: $direction;
+	box-flex: $flex;
+	box-lines: $lines;
+	box-flex-group: $flex-group;
+	box-ordinal-group: $ordinal-group;
+
+	// display: flex;
+	// flex-direction: column | column-reverse | *row | row-reverse;
+	// justify-content: *flex-start | flex-end | center | space-between | space-around;
+	// align-items: flex-start | flex-end | center | baseline | *stretch;
+	// align-content: flex-start | flex-end | center | space-between | space-around | *stretch;
+	// align-self: *auto | flex-start | flex-end | center | baseline | stretch;
+	// flex-basis: *auto | initial | <width>;
+	// flex-grow: <number>;
+	// flex-shrink: <number>;
+	// flex-wrap: *nowrap | wrap | wrap-reverse;
+	// order: <integer>;
+}
+@mixin linearGradient($dir, $color1, $color2) {
+	background: $color1;
+	background: -webkit-linear-gradient($dir, $color1, $color2);
+	background: -moz-linear-gradient($dir, $color1, $color2);
+	background: -ms-linear-gradient($dir, $color1, $color2);
+	background: -o-linear-gradient($dir, $color1, $color2);
+	background: linear-gradient($dir, $color1, $color2);
+	
+	// assume $color1 and $color2 are in hex
+	// assume $color1 is top, $color2 is bottom
+	// $alpha1: floor(alpha($color1) * 255);
+	// $alpha1Hex: `parseInt("${alpha}").toString(16)`;
+	// $color1Hex: `;
+	
+	filter: unquote("progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color1}', endColorstr='#{$color2}', GradientType=0 )");
+}
+@mixin noselect {
+	-webkit-user-select: none;
+	-moz-user-select: -moz-none;
+	-o-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+@mixin noTransition {
+	@include transition(none, 0s, linear, 0s);
+}
+@mixin roundCorners ($tl: 0, $tr: 0, $br: 0, $bl: 0) {
+	$arguments: $tl $tr $br $bl;
+	
+	-webkit-border-radius: $arguments;
+	-moz-border-radius: $arguments;
+	-ms-border-radius: $arguments;
+	-o-border-radius: $arguments;
+	border-radius: $arguments;
+}
+@mixin roundAll ($radius) {
+	@include roundCorners($radius, $radius, $radius, $radius);
+}
+@mixin roundTop ($radius) {
+	@include roundCorners($radius, $radius, 0, 0);
+}
+@mixin roundLeft ($radius) {
+	@include roundCorners($radius, 0, 0, $radius);
+}
+@mixin roundBottom ($radius) {
+	@include roundCorners(0, 0, $radius, $radius);
+}
+@mixin roundRight ($radius) {
+	@include roundCorners(0, $radius, $radius, 0);
+}
+@mixin textShadow ($x: 0, $y: 0, $blur: 0, $color: transparent) {
+	@if (length($color) > 1) {
+		text-shadow: zip($x, $y, $blur, $color);
+	} @else {
+		text-shadow: $x $y $blur $color;
+	}
+}
+@mixin transition ($prop: all, $dur: 1s, $func: ease, $delay: 0s) {
+	$arguments: none;
+	@if length($prop) > 1 {
+		$arguments: zip($prop, $dur, $func, $delay);
+	} @else {
+		$arguments: $prop $dur $func $delay;
+	}
+	
+	-webkit-transition: $arguments;
+	-moz-transition: $arguments;
+	-ms-transition: $arguments;
+	-o-transition: $arguments;
+	transition: $arguments;
+}

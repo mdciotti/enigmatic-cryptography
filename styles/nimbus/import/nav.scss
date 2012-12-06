@@ -1,0 +1,95 @@
+// NAVIGATION MENU //
+
+#container.nav-top nav, nav {
+	
+}
+
+#container.nav-side nav {
+	width: $navSideWidth;
+	float: left;
+
+	h2 {
+		margin: (2 * $unit) 0 ($unit / 2) 0;
+		color: $medGrey;
+		@include engrave($medGrey, $veryLightGrey);
+		cursor: default;
+	}
+
+	ul {
+
+
+		&.panel {
+			background-color: $panelBG;
+			@include inset;
+			@include roundLeft($unit / 2);
+			// box-shadow: inset 0 0.3em 0.8em -0.4em #000000,
+			// 	0 1px #ffffff;
+			border-left: 1px solid $borderGrey;
+			border-bottom: 1px solid $borderGrey;
+
+			li {
+				a {
+					display: block;
+					font-weight: 600;
+					font-size: 90%;
+					padding: (3 * $unit / 4) ($unit);
+					line-height: 0.1;
+					// border-bottom: 1px solid fade-out(darken($panelBG, 25%), 0.5);
+					// border-top: 1px solid rgba(255,255,255,0.5);
+					color: $medGrey !important;
+					@include engrave($medGrey, $panelBG);
+
+					//.transition(background-color, 0.25s, linear);
+
+					i {
+						width: 24px;
+						height: 24px;
+						padding: $unit / 2;
+						background-origin: content-box;
+						// background-clip: content-box;
+						background-color: $medGrey;
+						@include roundAll(2px);
+						box-shadow: inset 0 1px 1px rgba(0,0,0,0.5);
+						display: inline-block;
+						margin-right: 8px;
+						vertical-align: middle;
+					}
+				}
+
+				&:hover a {
+					text-decoration: none !important;
+					background-color: fade-out(lighten($panelBG, 15%), 0.5);
+					@include noTransition;
+				}
+				&:active a {
+					@include inset;
+					background-color: fade-out($medGrey, 0.5);
+					color: $veryLightGrey !important;
+					text-shadow: 0 1px 3px $medGrey;
+					// border-top-color: $medGrey;
+
+					i {
+						background-color: $veryLightGrey;
+						box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+					}
+				}
+				&.selected a {
+					@include itemFocus;
+
+					i {
+						background-color: $veryLightGrey;
+						box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+					}
+				}
+				&:first-child a {
+					border-top: none;
+					@include roundCorners($unit / 2, 0, 0, 0);
+				}
+				&:last-child a {
+					border-bottom: none;
+					@include roundCorners(0, 0, 0, $unit / 2);
+				}
+			}
+		}
+	}
+}

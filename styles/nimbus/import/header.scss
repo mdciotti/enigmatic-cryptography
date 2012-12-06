@@ -1,0 +1,162 @@
+// HEADER //
+
+header {
+	margin-bottom: 2 * $unit;
+	position: relative;
+	@include noselect;
+
+	h1 {
+		font-size: 2 * $unit;
+		font-weight: 400;
+		@include engrave($lightBlue, $lightGrey);
+
+		a {
+			text-decoration: none !important;
+		}
+	}
+	aside {
+		float: right;
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		.search {
+			float: left;
+			margin-right: 2 * $unit;
+			@include clearfix;
+			max-width: 20 * $unit;
+			@include roundAll($unit / 2);
+			border: 1px solid transparent;
+
+			form {
+				display: block;
+				margin: $unit / 2;
+				position: relative;
+				padding: 0 26px 0 0;
+			}
+
+			input[type="search"] {
+				@include roundLeft($unit / 4);
+				display: block;
+				width: 100%;
+				min-width: 10 * $unit;
+				height: 26px;
+			}
+			input[type="submit"] {
+				@include roundRight($unit / 4);
+				width: 26px;
+				height: 26px;
+				border-left: none !important;
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+
+			.results {
+				clear: both;
+				display: none;
+				width: 100%;
+				font-size: 80%;
+				border-top: 1px solid $borderGrey;
+
+				.top {
+					@include toolbar;
+					border-left: none;
+					border-right: none;
+					padding: $unit / 2;
+					@include engrave($darkGrey, $lightGrey);
+					cursor: default;
+
+					.all {
+						float: right;
+					}
+
+					&.none {
+						text-align: center;
+						@include roundBottom($unit/2);
+					}
+				}
+				ul {
+					display: block;
+					float: none;
+
+					li {
+						display: block;
+						float: none;
+
+						a {
+							display: block;
+							padding: $unit / 2;
+							@include engrave($darkGrey, $veryLightGrey);
+							border-top: 1px solid lighten($veryLightGrey, 12.5%);
+							border-bottom: 1px solid darken($veryLightGrey, 12.5%);
+							background: $veryLightGrey;
+							outline: none;
+							overflow-x: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+
+							strong {
+								display: block;
+							}
+							i {
+								width: 32px;
+								height: 32px;
+								background-color: $lightGrey;
+								@include linearGradient(top, lighten($lightGrey, 6.25%), $lightGrey);
+								border: 1px solid $borderGrey;
+								@include roundAll(3px);
+								@include boxHighlight($lightGrey, #FFFFFF);
+								margin-right: $unit / 2;
+								display: block;
+								float: left;
+							}
+
+							&:hover, &:focus {
+								@include itemFocus;
+								text-decoration: none;
+
+								i {
+									box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+								}
+							}
+						}
+
+						&:last-child a {
+							border-bottom: none;
+							@include roundBottom($unit / 2);
+						}
+					}
+				}
+			}
+
+			&.focus {
+				background: $veryLightGrey;
+				border: 1px solid $borderGrey;
+				@include boxShadow;
+
+				.results {
+					display: block;
+				}
+			}
+		}
+
+		.userbar {
+			list-style-type: none;
+			float: left;
+
+			li {
+				display: inline-block;
+				float: left;
+				margin: ($unit / 2) 0;
+
+				a {
+					padding: 4px;
+					margin: 1px 4px;
+					display: block;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,90 @@
+// TABS //
+
+@import 'import/util';
+
+@import 'import/constants';
+@import 'import/mixins';
+
+section .tab-box {
+	.tab-bar {
+		@include toolbar;
+		@include flexbox($flex: 1, $align: stretch);
+
+		padding: 0;
+		border: none;
+		list-style-type: none;
+
+		.tab {
+			@include engrave($medGrey, $veryLightGrey);
+			@include flex(1);
+
+
+			a {
+				// box-shadow: boxHighlight(#FFFFFF);
+				border-top: 1px solid #FFFFFF;
+				box-shadow: inset 1px 0 #FFFFFF,
+					inset -1px 0 $borderGrey;
+				display: block;
+				padding: ($unit / 2) ($unit / 2);
+				text-align: center;
+				text-transform: none;
+				text-decoration: none;
+				outline: none;
+				color: $medGrey;
+				// border-left: 1px solid lighten($veryLightGrey, 25%);
+				// border-right: 1px solid $borderGrey;
+				border-bottom: 1px solid $borderGrey;
+			}
+
+			&:hover a, & a:focus {
+				color: $lightBlue;
+			}
+			&:active a {
+				box-shadow: inset 0 2px ($unit / 2) rgba(0,0,0,0.5);
+				// padding-left: $unit / 2 + 1px;
+				// padding-right: $unit / 2 + 1px;
+				padding-top: ($unit / 2) + 1px;
+				background-color: fade-out($medGrey, 0.5);
+				color: $darkGrey;
+				text-shadow: 0 1px 1px lighten($medGrey, 37.5%);
+				border-top: none;
+				// border-left: none;
+				// border-right: none;
+			}
+			&.selected a {
+				@include linearGradient(top, $lightBlue, darken($lightBlue, 12.5%));
+				@include engrave($veryLightGrey, $lightBlue);
+				// box-shadow: boxHighlight($lightBlue);
+				box-shadow: inset 1px 0 lighten($lightBlue, 25%),
+					inset -1px 0 darken($lightBlue, 25%);
+				// border-left: 1px solid lighten($lightBlue, 25%);
+				// border-right: 1px solid darken($lightBlue, 25%);
+				border-top: 1px solid lighten($lightBlue, 12.5%);
+				border-bottom: 1px solid darken($lightBlue, 25%);
+
+				&:active {
+					padding-top: ($unit / 2);
+				}
+			}
+			&:first-child a {
+				box-shadow: inset -1px 0 $borderGrey;
+			}
+			&:first-child.selected a {
+				box-shadow: inset -1px 0 darken($lightBlue, 25%);
+			}
+			&:last-child a {
+				box-shadow: inset 1px 0 #FFFFFF;
+			}
+			&:last-child.selected a {
+				box-shadow: inset 1px 0 lighten($lightBlue, 25%)
+			}
+		}
+	}
+	.tab-view {
+		display: none;
+
+		&.selected {
+			display: block;
+		}
+	}
+}
