@@ -54,11 +54,14 @@
 // STYLES //
 
 @media screen and (min-width: 960px) {
+
+	#site {
+		width: 960px;
+	}
+
 	#panel {
 		position: fixed;
 		z-index: 20;
-		left: 0;
-		top: 0;
 		width: 330px;
 		height: 100%;
 		border-right: 1px solid @borderGrey;
@@ -183,6 +186,7 @@
 }
 
 @media screen and (max-width: 579px) {
+
 	#panel {
 		header p {
 			text-align: center;
@@ -254,6 +258,10 @@
 		font-size: 16px;
 		text-rendering: optimizeLegibility;
 		min-width: 320px;
+	}
+
+	#site {
+		margin: 0 auto;
 	}
 
 	#fadetop, #fadebottom {
@@ -440,7 +448,7 @@
 		
 		header {
 			h1 {
-				letter-spacing: -1px;
+				letter-spacing: -1.5px;
 				.sansBold;
 
 				/*background-color: @blue;
