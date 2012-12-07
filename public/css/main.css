@@ -1,8 +1,29 @@
 @import 'font/ostrich/stylesheet.css';
 
 @import 'font/roboto/stylesheet.css';
-.sans {
-  font-family: 'Roboto', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+.sansThin {
+  font-family: 'RobotoThin', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font-weight: 200;
+}
+.sansLight {
+  font-family: 'RobotoLight', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+.sansRegular {
+  font-family: 'RobotoRegular', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+.sansMedium {
+  font-family: 'RobotoMedium', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+}
+.sansBold {
+  font-family: 'RobotoBold', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+.sansBlack {
+  font-family: 'RobotoBlack', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font-weight: 800;
 }
 .serif {
   font-family: 'FreeSerif', 'Baskerville', 'Book Antiqua', georgia, serif;
@@ -162,9 +183,10 @@
     margin: 0;
     background: #eeeef8;
     min-height: 100%;
-    font-family: 'Roboto', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+    font-family: 'RobotoLight', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
     font-weight: 300;
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     min-width: 320px;
   }
@@ -176,8 +198,8 @@
     text-decoration: underline;
   }
   h1 {
-    font-family: 'Roboto', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
-    font-weight: 800;
+    font-family: 'RobotoBold', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+    font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 0;
     line-height: 1;
@@ -239,18 +261,18 @@
     font-family: 'OstrichSansBold';
     font-weight: 400;
     font-size: 75px;
-    line-height: 0.6;
+    line-height: 0.75;
     margin-left: 4px;
-    margin-top: 18px;
+    margin-top: 8px;
     display: block;
   }
   #panel header h1 a span.bottom {
     display: block;
     letter-spacing: 5px;
-    font-family: 'Roboto', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
-    font-weight: 200;
+    font-family: 'RobotoLight', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+    font-weight: 300;
     font-size: 26px;
-    color: #333333;
+    color: #666666;
   }
   #panel header h1 a:hover span.open {
     top: -10px;
@@ -311,7 +333,8 @@
   }
   .post header h1 {
     letter-spacing: -1px;
-    font-weight: 900;
+    font-family: 'RobotoBold', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+    font-weight: 700;
     /*background-color: @blue;
   				color: #eeeeee;
   				padding: 12px 16px;
@@ -320,7 +343,8 @@
   
   }
   .post header .author {
-    font-weight: 600;
+    font-family: 'RobotoBold', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+    font-weight: 700;
     text-transform: uppercase;
     float: left;
     display: block;
@@ -328,10 +352,12 @@
   }
   .post header .author:before {
     content: 'by ';
+    font-family: 'RobotoLight', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
     font-weight: 300;
     text-transform: lowercase;
   }
   .post header .date {
+    font-family: 'RobotoLight', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
     font-weight: 300;
     text-align: right;
     display: block;

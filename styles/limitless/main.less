@@ -1,4 +1,4 @@
-//  FROZEN THEME  //
+//  LIMITLESS THEME  //
 // (c) Max Ciotti //
 
 // IMPORTS //
@@ -17,20 +17,38 @@
 
 @blue: #00B7FF;
 @lightGrey: #eeeef8;
+@medGrey: #666666;
 @borderGrey: #cccccc;
 @slateBlue: #9999a8;
 
 // MIXINS //
 
-.sans {
-	font-family: 'Roboto', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+.sansThin {
+	font-family: 'RobotoThin', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+	font-weight: 200;
+}
+.sansLight {
+	font-family: 'RobotoLight', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+	font-weight: 300;
+}
+.sansRegular {
+	font-family: 'RobotoRegular', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+	font-weight: 400;
+}
+.sansMedium {
+	font-family: 'RobotoMedium', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+	font-weight: 600;
+}
+.sansBold {
+	font-family: 'RobotoBold', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+	font-weight: 700;
+}
+.sansBlack {
+	font-family: 'RobotoBlack', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+	font-weight: 800;
 }
 .serif {
 	font-family: 'FreeSerif', 'Baskerville', 'Book Antiqua', georgia, serif;
-}
-
-a {
-
 }
 
 // STYLES //
@@ -227,9 +245,10 @@ a {
 		margin: 0;
 		background: @lightGrey;
 		min-height: 100%;
-		.sans;
-		font-weight: 300;
+		.sansLight;
 		font-size: 16px;
+		-webkit-font-smoothing: antialiased;
+		// -webkit-text-stroke: 0.35px;
 		text-rendering: optimizeLegibility;
 		min-width: 320px;
 	}
@@ -243,8 +262,7 @@ a {
 		}
 	}
 	h1 {
-		.sans;
-		font-weight: 800;
+		.sansBold;
 		text-transform: uppercase;
 		margin-bottom: 0;
 		line-height: 1;
@@ -307,9 +325,9 @@ a {
 					font-family: 'OstrichSansBold';
 					font-weight: 400;
 					font-size: 75px;
-					line-height: 0.6;
+					line-height: 0.75;
 					margin-left: 4px;
-					margin-top: 18px;
+					margin-top: 8px;
 
 					display: block;
 				}
@@ -317,10 +335,9 @@ a {
 					display: block;
 
 					letter-spacing: 5px;
-					.sans;
-					font-weight: 200;
+					.sansLight;
 					font-size: 26px;
-					color: #333333;
+					color: @medGrey;
 				}
 				&:hover {
 					span.open {
@@ -337,7 +354,7 @@ a {
 				font-size: 20px;
 				letter-spacing: 1px;
 				line-height: 1;
-				color: #666666;
+				color: @medGrey;
 				cursor: default;
 				text-transform: lowercase;
 				margin: 0;
@@ -357,7 +374,7 @@ a {
 			text-transform: lowercase;
 			.serif;
 			cursor: default;
-			color: #666666;
+			color: @medGrey;
 			line-height: 1.2;
 			margin-top: 16px;
 			font-style: italic;
@@ -399,7 +416,7 @@ a {
 		header {
 			h1 {
 				letter-spacing: -1px;
-				font-weight: 900;
+				.sansBold;
 
 				/*background-color: @blue;
 				color: #eeeeee;
@@ -408,24 +425,24 @@ a {
 				margin-right: -24px;*/
 			}
 			.author {
-				font-weight: 600;
+				.sansBold;
 				text-transform: uppercase;
 				float: left;
 				display: block;
-				color: #666666;
+				color: @medGrey;
 
 				&:before {
 					content: 'by ';
-					font-weight: 300;
+					.sansLight;
 					text-transform: lowercase;
 				}
 			}
 			.date {
-				font-weight: 300;
+				.sansLight;
 				text-align: right;
 				display: block;
 				/*text-transform: uppercase;*/
-				color: #666666;
+				color: @medGrey;
 			}
 		}
 		
