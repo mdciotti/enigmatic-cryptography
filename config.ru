@@ -33,7 +33,7 @@ toto = Toto::Server.new do
 	set :desc, "Insight into the craft of <br/> covert communication"
 	set :footer, "design &copy; Max Ciotti<br/>Powered by <a href=\"http://cloudhead.io/toto\">toto</a>"
 	set :markdown, :smart
-	set :disqus, false
+	set :disqus, "enigmatic-cryptography"
 	set :date, lambda {|now| now.strftime("%d %b %Y") }
 end
 
