@@ -31,6 +31,7 @@
 @media screen and (min-width: 960px) {
   #panel {
     position: fixed;
+    z-index: 20;
     left: 0;
     top: 0;
     width: 330px;
@@ -130,9 +131,9 @@
   }
 }
 @media screen and (max-width: 579px) {
-  #panel header p,
-  #panel footer {
+  #panel header p {
     text-align: center;
+    margin-top: 24px !important;
   }
   #panel nav ul li {
     display: inline-block;
@@ -141,6 +142,7 @@
   #panel footer {
     font-size: 16px;
     margin-bottom: 16px;
+    text-align: center;
   }
   #container .pagetitle {
     border-top: 1px solid #cccccc;
@@ -186,9 +188,30 @@
     font-family: 'RobotoLight', 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
     font-weight: 300;
     font-size: 16px;
-    -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     min-width: 320px;
+  }
+  #fadetop,
+  #fadebottom {
+    position: fixed;
+    width: 100%;
+    height: 32px;
+    left: 0;
+    z-index: 10;
+  }
+  #fadetop {
+    top: 0;
+    background-image: -webkit-linear-gradient(top, #eeeef8, rgba(238, 238, 248, 0));
+    background-image: -moz-linear-gradient(top, #eeeef8, rgba(238, 238, 248, 0));
+    background-image: -ms-linear-gradient(top, #eeeef8, rgba(238, 238, 248, 0));
+    background-image: linear-gradient(top, #eeeef8, rgba(238, 238, 248, 0));
+  }
+  #fadebottom {
+    bottom: 0;
+    background-image: -webkit-linear-gradient(bottom, #eeeef8, rgba(238, 238, 248, 0));
+    background-image: -moz-linear-gradient(bottom, #eeeef8, rgba(238, 238, 248, 0));
+    background-image: -ms-linear-gradient(bottom, #eeeef8, rgba(238, 238, 248, 0));
+    background-image: linear-gradient(bottom, #eeeef8, rgba(238, 238, 248, 0));
   }
   a {
     color: #00b7ff;
