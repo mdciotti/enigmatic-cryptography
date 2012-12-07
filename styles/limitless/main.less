@@ -53,200 +53,6 @@
 
 // STYLES //
 
-@media screen and (min-width: 960px) {
-
-	#site {
-		width: 960px;
-	}
-
-	#panel {
-		position: fixed;
-		z-index: 20;
-		width: 330px;
-		height: 100%;
-		border-right: 1px solid @borderGrey;
-		border-bottom: none;
-		background: @lightGrey;
-
-		header p, footer {
-			text-align: center !important;
-		}
-
-		nav ul {
-			text-align: center !important;
-
-			li {
-				display: display: block !important;
-			}
-		}
-	}
-
-	#container {
-		margin-left: 331px;
-
-		.pagetitle {
-			max-width: 500px;
-		}
-
-		.pagebody {
-			max-width: 500px;
-		}
-	}
-
-	.post {
-		padding: 64px;
-
-		&:first-child {
-			border-top: none !important;
-		}
-
-		article {
-			max-width: 500px;
-		}
-
-		.body p {
-			font-size: 20px !important;
-		}
-	}
-}
-
-
-@media screen and (min-width: 580px) {
-	#panel {
-		header {
-			padding: 4px 32px !important;
-			margin-bottom: 16px;
-			
-			h1 a {
-				margin: 0 32px 16px 0 !important;
-				float: left;
-			}
-
-			p {
-				margin-top: 64px !important;
-				font-size: 24px;
-				text-align: left;
-			}
-		}
-
-		nav ul {
-			text-align: left;
-
-			li {
-				display: inline-block;
-				margin-right: 16px;
-			}
-		}
-
-		footer {
-			margin-bottom: 20px;
-			text-align: left;
-		}
-	}
-
-	#container {
-
-		.pagetitle {
-			border-top: 1px solid @borderGrey;
-			font-size: 128px;
-			padding-left: 32px;
-			margin-bottom: -16px;
-			clear: both;
-		}
-
-		.pagebody {
-			padding: 32px;
-
-			ul {
-				font-size: 20px;
-				padding: 0 0 0 32px;
-			}
-
-			.date {
-				font-size: 16px;
-			}
-		}
-	}
-
-	.post {
-		clear: both;
-		padding: 32px;
-		border-top: 1px solid @borderGrey;
-		
-		header h1 {
-			font-size: 32px;
-		}
-		header .author, header .date {
-			font-size: 16px;
-		}
-		.body {
-			font-size: 20px;
-		}
-	}
-}
-
-@media screen and (max-width: 579px) {
-
-	#panel {
-		header p {
-			text-align: center;
-			margin-top: 24px !important;
-		}
-
-		nav ul li {
-			display: inline-block;
-			margin: 0 8px;
-		}
-
-		footer {
-			font-size: 16px;
-			margin-bottom: 16px;
-			text-align: center;
-		}
-	}
-
-	#container {
-
-		.pagetitle {
-			border-top: 1px solid @borderGrey;
-			font-size: 96px;
-			padding-left: 24px;
-			margin-bottom: -12px;
-			clear: both;
-		}
-
-		.pagebody {
-			padding: 24px;
-
-			ul {
-				font-size: 16px;
-				padding: 0 0 0 24px;
-			}
-
-			.date {
-				font-size: 12px;
-			}
-		}
-	}
-
-	.post {
-		padding: 24px;
-		border-top: 1px solid @borderGrey;
-
-		header {
-			h1 {
-				font-size: 24px;
-			}
-			.author, .date {
-				font-size: 12px;
-			}
-		}
-		.body {
-			font-size: 16px;
-		}
-	}
-}
-
 @media screen {
 	html { min-height: 100%; }
 	body {
@@ -451,17 +257,15 @@
 				letter-spacing: -1.5px;
 				.sansBold;
 
-				/*background-color: @blue;
-				color: #eeeeee;
-				padding: 12px 16px;
-				margin-left: -24px;
-				margin-right: -24px;*/
+				// background-color: @blue;
+				// color: #eeeeee;
+				// padding: 12px 16px;
+				// margin-left: -24px;
+				// margin-right: -24px;
 			}
 			.author {
 				.sansBold;
 				text-transform: uppercase;
-				float: left;
-				display: block;
 				color: @medGrey;
 
 				&:before {
@@ -472,30 +276,226 @@
 			}
 			.date {
 				.sansLight;
-				text-align: right;
-				display: block;
-				/*text-transform: uppercase;*/
+				// text-transform: uppercase;
 				color: @medGrey;
+
+				&:before {
+					content: ' on ';
+					.sansLight;
+					text-transform: lowercase;
+				}
 			}
 		}
 		
 		.body {
 
 			p {
-				/*text-align: justify;*/
+				// text-align: justify;
 				-webkit-hyphens: auto;
 				-moz-hyphens: auto;
 				-ms-hyphens: auto;
 				hyphens: auto;
 			}
-			/*p:first-child:first-letter {
-				font-size: 2.6em;
-				line-height: 1;
-				margin-right: 8px;
-				margin-top: 10px;
-				font-weight: 800;
+		}
+	}
+}
+
+//////////////////////////////////
+///////// MOBILE DEVICES /////////
+//////////////////////////////////
+
+@media screen and (max-width: 579px) {
+
+	#panel {
+		header p {
+			text-align: center;
+			margin-top: 24px;
+		}
+
+		nav ul li {
+			display: inline-block;
+			margin: 0 8px;
+		}
+
+		footer {
+			font-size: 16px;
+			margin-bottom: 16px;
+			text-align: center;
+		}
+	}
+
+	#container {
+
+		.pagetitle {
+			border-top: 1px solid @borderGrey;
+			font-size: 80px;
+			padding-left: 24px;
+			padding-top: 32px;
+			margin-bottom: -12px;
+			clear: both;
+		}
+
+		.pagebody {
+			padding: 24px;
+
+			ul {
+				font-size: 16px;
+				padding: 0 0 0 24px;
+				margin: 0;
+			}
+
+			.date {
+				font-size: 12px;
+			}
+		}
+	}
+
+	.post {
+		padding: 24px;
+		border-top: 1px solid @borderGrey;
+
+		header {
+			h1 {
+				font-size: 24px;
+			}
+			.author, .date {
+				font-size: 12px;
+			}
+		}
+		.body {
+			font-size: 16px;
+		}
+	}
+}
+
+//////////////////////////////////
+///////// TABLET DEVICES /////////
+//////////////////////////////////
+
+
+@media screen and (min-width: 580px) {
+	#panel {
+		header {
+			padding: 4px 32px;
+			margin-bottom: 16px;
+			
+			h1 a {
+				margin: 0 32px 16px 0;
 				float: left;
-			}*/
+			}
+
+			p {
+				margin-top: 64px;
+				font-size: 24px;
+				text-align: left;
+			}
+		}
+
+		nav ul {
+			text-align: left;
+
+			li {
+				display: inline-block;
+				margin-right: 16px;
+			}
+		}
+
+		footer {
+			margin-bottom: 20px;
+			text-align: left;
+		}
+	}
+
+	#container {
+
+		.pagetitle {
+			border-top: 1px solid @borderGrey;
+			font-size: 128px;
+			padding-left: 32px;
+			margin-bottom: -16px;
+			clear: both;
+		}
+
+		.pagebody {
+			padding: 32px;
+
+			ul {
+				font-size: 20px;
+				padding: 0 0 0 32px;
+			}
+
+			.date {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.post {
+		clear: both;
+		padding: 32px;
+		border-top: 1px solid @borderGrey;
+
+		header h1 {
+			font-size: 32px;
+		}
+		header .author, header .date {
+			font-size: 16px;
+		}
+		.body {
+			font-size: 20px;
+		}
+	}
+}
+
+//////////////////////////////////
+///////// LARGER DEVICES /////////
+//////////////////////////////////
+
+@media screen and (min-width: 960px) {
+
+	#site {
+		max-width: 960px;
+	}
+
+	#panel {
+		position: fixed;
+		z-index: 20;
+		width: 330px;
+		height: 100%;
+		border-right: 1px solid @borderGrey;
+		border-bottom: none;
+		background: @lightGrey;
+
+		header p, footer {
+			text-align: center;
+		}
+
+		nav ul {
+			text-align: center;
+
+			li {
+				display: display: block;
+			}
+		}
+	}
+
+	#container {
+		margin-left: 331px;
+	}
+
+	.post {
+		padding: 48px;
+
+		&:first-child {
+			border-top: none;
+		}
+
+		article header h1 {
+			margin-top: 0;
+		}
+
+		.body p {
+			font-size: 20px;
 		}
 	}
 }

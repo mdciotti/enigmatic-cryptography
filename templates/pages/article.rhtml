@@ -5,12 +5,10 @@
 			<span class="author"><%= author %></span>
 			<span class="date"><%= date %></span>
 		</header>
-		<section class="content">
+		<section class="body">
 			<%= body %>
 		</section>
-		<footer style="display: none;">
-			
-		</footer>
+		<footer style="display: none;"></footer>
 		<section class="comments">
 		<% if @config[:disqus] %>
 			<div id="disqus_thread"></div>

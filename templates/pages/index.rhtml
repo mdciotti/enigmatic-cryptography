@@ -13,13 +13,6 @@ if n > 0 then
 		<section class="body">
 			<%= currentArticle.body %>
 		</section>
-		<footer style="display: none;">
-			<% if i < n-1 then %>
-			<div class="prev">
-				<a href="<%= archives[i+1].url %>">&raquo; Previous: <%= archives[i+1].title %></a>
-			</div>
-			<% end %>
-		</footer>
 	</article>
 </div>
 <%	end
