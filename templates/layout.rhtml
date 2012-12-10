@@ -19,7 +19,7 @@
 			</header>
 			<nav>
 				<ul>
-					<% @config[:nav].each do | navitem | %>
+					<% for navitem in @config[:nav] %>
 					<li><a href="<%= navitem[:path] %>"><%= navitem[:title] %></a></li>
 					<% end %>
 				</ul>
