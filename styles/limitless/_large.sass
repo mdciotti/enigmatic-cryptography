@@ -1,0 +1,31 @@
+// LARGER DEVICES
+
+@media screen and (min-width: $large)
+	dl dt
+		font-size: 3*$u
+	#site
+		max-width: $maxWidth
+	#panel
+		position: fixed
+		z-index: 20
+		width: $panelWidth
+		height: 100%
+		border-right: 1px solid $borderGrey
+		border-bottom: none
+		background: $lightGrey
+		header p, footer
+			text-align: center
+		nav ul
+			text-align: center
+	#container
+		margin-left: $panelWidth + 1px
+		.pagetitle
+			border-top: none
+	.post
+		padding: 3*$u
+		&:first-child
+			border-top: none
+		article header h1
+			margin-top: 0
+		img
+			max-width: $maxWidth/2

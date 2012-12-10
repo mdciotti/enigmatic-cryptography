@@ -15,8 +15,8 @@ JS =
 	output_to_file: false
 
 CSS =
-	lang: 'less'
-	compiler: 'lessc [OPTIONS]... INPUT OUTPUT'
+	lang: 'sass'
+	compiler: 'sass [OPTIONS]... INPUT:OUTPUT'
 	lib_dir: 'styles/lib/'
 	src_dir: 'styles/'
 	target_dir: 'public/css/'
@@ -35,7 +35,12 @@ getSources = (src_dir, ext) ->
 	pattern = new RegExp "\\.#{ext}$", 'i'
 
 	if fs.existsSync src_dir
-		sources.push src for src in fs.readdirSync src_dir when pattern.test(src) and fs.statSync(path.join(src_dir, src)).isFile()
+		for src in fs.readdirSync src_dir
+			isSrc = pattern.test(src)
+			isPartial = src.charAt(0) is "_"
+			isFile = fs.statSync(path.join(src_dir, src)).isFile()
+			sources.push src if isSrc and isFile and not isPartial
+			# util.puts src if isSrc and isFile and not isPartial
 		return sources
 	else
 		console.error "Directory '%s' does not exist", src_dir
@@ -48,14 +53,14 @@ execute = (executable, input, output, options = []) ->
 	if regex_input.test executable
 		executable = executable.replace regex_input, input
 	else
-		console.error 'Malformed executable: could not find \'INPUT\''
+		console.error 'Malformed executable string: could not find \'INPUT\''
 		util.puts executable
 		return
 
 	if regex_output.test executable
 		executable = executable.replace regex_output, output
 	else
-		console.error 'Malformed executable: could not find \'OUTPUT\''
+		console.error 'Malformed executable string: could not find \'OUTPUT\''
 		util.puts executable
 		return
 

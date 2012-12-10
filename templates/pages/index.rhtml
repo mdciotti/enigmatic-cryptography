@@ -1,21 +1,19 @@
-<% n = articles.length
-
-if n > 0 then
-	articles[0...n].each_with_index do |currentArticle, i| %>
-
+<% n = articles.length %>
+<% if n > 0 %>
+<% for entry in articles[0...n] %>
 <div class="post">
 	<article>
 		<header>
-			<h1><%= currentArticle.title %></h1>
-			<span class="author"><%= currentArticle.author %></span>
-			<span class="date"><%= currentArticle.date %></span>
+			<h1><%= entry.title %></h1>
+			<span class="author"><%= entry.author %></span>
+			<span class="date"><%= entry.date %></span>
 		</header>
 		<section class="body">
-			<%= currentArticle.body %>
+			<%= entry.body %>
 		</section>
 	</article>
 </div>
-<%	end
-else %>
+<% end %>
+<% else %>
 <div class="post"><h1>No Articles, sorry :(</h1></div>
 <% end %>

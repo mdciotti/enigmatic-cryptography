@@ -12,6 +12,7 @@ end
 #
 # Create and configure a toto instance
 #
+
 toto = Toto::Server.new do
 	#
 	# Add your settings here
@@ -31,12 +32,16 @@ toto = Toto::Server.new do
 	set :author, "Max Ciotti"
 	set :title, "Enigmatic Cryptography"
 	set :desc, "Insight into the craft of <br/> covert communication"
-	set :footer, "design &copy; Max Ciotti<br/>Powered by <a href=\"http://cloudhead.io/toto\">toto</a>"
+	set :footer, "Design &copy; Max Ciotti<br/>Powered by <a href=\"http://cloudhead.io/toto\">toto</a>"
 	set :markdown, :smart
 	set :disqus, "enigmatic-cryptography"
 	set :date, lambda {|now| now.strftime("%d %b %Y") }
+	set :nav, [
+		{:title => "All", :path => "/"},
+		{:title => "Archives", :path => "/archives"},
+		{:title => "About", :path => "/about"}
+	]
+	set :categories, ["Overview", "History", "Specifics", "Antisecurity", "Future"]
 end
 
 run toto
-
-

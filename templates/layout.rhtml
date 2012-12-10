@@ -9,8 +9,6 @@
 		<link rel="apple-touch-icon-precomposed" href="/img/icon_266.png" />
 		<link rel="stylesheet" type="text/css" href="/css/main.css" />
 		<link rel="alternate" type="application/atom+xml" title="<%= title %> - feed" href="/index.xml" />
-		<link href="http://roboto-webfont.googlecode.com/svn/trunk/roboto.all.css" rel="stylesheet" type="text/css">
-		<!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,800,400,400italic' rel='stylesheet' type='text/css'>-->
 	</head>
 	<body>
 		<div id="site">
@@ -21,9 +19,9 @@
 			</header>
 			<nav>
 				<ul>
-					<li><a href="/">All</a></li>
-					<li><a href="/archives">Archives</a></li>
-					<li><a href="/about">About</a></li>
+					<% @config[:nav].each do | navitem | %>
+					<li><a href="<%= navitem[:path] %>"><%= navitem[:title] %></a></li>
+					<% end %>
 				</ul>
 			</nav>
 			<footer>

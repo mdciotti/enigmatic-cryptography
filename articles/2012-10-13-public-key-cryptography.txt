@@ -1,8 +1,9 @@
 title: Public Key Cryptography
 date: 2012/10/13
 author: Max Ciotti
+category: Specifics
 
-While not strictly an algorithm for transmitting messages securely, public key cryptography has become heavily relied upon in systems where user authentication is required. For example, every time you log into gmail, facebook, or some other website with your email address and password, or whenever you make secure payments online, public key cryptography creates a secured tunnel through which you can transmit that data to the respective app without fear of it being compromised. All this is possible because of the unique mathematical principles behind public key cryptography which were first published in 1976 by Whitfield Diffie and Martin Hellman.
+While not typically used an algorithm for transmitting messages securely, public key cryptography has become heavily relied upon in systems where user authentication is required. For example, every time you log into gmail, facebook, or some other website with your email address and password, or whenever you make secure payments online, public key cryptography creates a secured tunnel through which you can transmit that data to the respective app without fear of it being compromised. All this is possible because of the unique mathematical principles behind public key cryptography which were first published in 1976 by Whitfield Diffie and Martin Hellman.
 
 These two researchers came up with a method of establishing such a link, and published its mechanism under the name of the Diffie-Hellman Key Exchange. This type of communication is called asymmetric key exchange, as it describes a one-way function, or some process that cannot be undone in order to receive the original components. Their breakthrough is a remarkably fascinating process, and can be beautifully described in simple terms with an analogy to color theory.
 
