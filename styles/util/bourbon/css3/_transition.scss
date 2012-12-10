@@ -15,11 +15,11 @@
 }
 
 @mixin transition-property ($properties...) {
-   -webkit-transition-property: transition-property-names($properties, 'webkit');
-      -moz-transition-property: transition-property-names($properties, 'moz');
-       -ms-transition-property: transition-property-names($properties, 'ms');
-        -o-transition-property: transition-property-names($properties, 'o');
-           transition-property: transition-property-names($properties, false);
+   -webkit-transition-property: zip(transition-property-names($properties, 'webkit'));
+      -moz-transition-property: zip(transition-property-names($properties, 'moz'));
+       -ms-transition-property: zip(transition-property-names($properties, 'ms'));
+        -o-transition-property: zip(transition-property-names($properties, 'o'));
+           transition-property: zip(transition-property-names($properties, false));
 }
 
 @mixin transition-duration ($times...) {
