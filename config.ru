@@ -2,6 +2,7 @@
 require 'toto'
 
 # Rack config
+use Rack::Deflater
 use Rack::Static, :urls => ['/css', '/js', '/img', '/favicon.ico'], :root => 'public'
 use Rack::CommonLogger
 
