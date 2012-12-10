@@ -91,11 +91,11 @@ dl dd {
       display: block;
       position: absolute;
       z-index: 0;
-      -webkit-transition: all, 0.1s, ease-out;
-      -moz-transition: all, 0.1s, ease-out;
-      -ms-transition: all, 0.1s, ease-out;
-      -o-transition: all, 0.1s, ease-out;
-      transition: all, 0.1s, ease-out; }
+      -webkit-transition: all 0.1s ease-out;
+      -moz-transition: all 0.1s ease-out;
+      -ms-transition: all 0.1s ease-out;
+      -o-transition: all 0.1s ease-out;
+      transition: all 0.1s ease-out; }
     #panel header h1 a span.logotype {
       display: block;
       position: absolute;
