@@ -2,3 +2,6 @@
 .bundle
 .config
 .sass-cache/*
+.DS_Store
+
+*.log

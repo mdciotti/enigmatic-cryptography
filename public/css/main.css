@@ -99,7 +99,7 @@ dl dd {
     #panel header h1 a span.logotype {
       display: block;
       position: absolute;
-      top: 72px;
+      top: 76px;
       z-index: 1; }
     #panel header h1 a span.top {
       font-family: "OstrichSansBold";
@@ -194,6 +194,11 @@ dl dd {
       font-family: "RobotoLight", "Open Sans", "Lucida Grande", Helvetica, Arial, sans-serif;
       font-weight: 300;
       text-transform: lowercase; }
+  .post .body h2, .post .body h3 {
+    letter-spacing: -1.5px;
+    font-family: "RobotoBold", "Open Sans", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: #333333; }
   .post .body p {
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
@@ -202,6 +207,15 @@ dl dd {
   .post .body img {
     display: block;
     margin: 0 auto; }
+  .post .body strong {
+    font-family: "RobotoBold", "Open Sans", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-weight: 400;
+    color: #333333; }
+  .post .body li {
+    line-height: 1.5; }
+    .post .body li p {
+      margin: 0; }
 
 @media screen and (max-width: 639px) {
   dl dt {

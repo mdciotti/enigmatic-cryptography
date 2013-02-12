@@ -84,11 +84,11 @@ dl
 				display: block
 				position: absolute
 				z-index: 0
-				+transition(all, 0.1s, ease-out)
+				+transition(all 0.1s ease-out)
 			span.logotype
 				display: block
 				position: absolute
-				top: 72px
+				top: 76px
 				z-index: 1
 			span.top
 				font-family: 'OstrichSansBold'
@@ -180,6 +180,10 @@ dl
 				+sansLight
 				text-transform: lowercase
 	.body
+		h2, h3
+			letter-spacing: -1.5px
+			+sansBold
+			color: $textColor
 		p
 			// text-align: justify;
 			-webkit-hyphens: auto
@@ -189,3 +193,11 @@ dl
 		img
 			display: block
 			margin: 0 auto
+		strong
+			+sansBold
+			font-weight: 400
+			color: $textColor
+		li
+			line-height: 1.5
+			p
+				margin: 0
