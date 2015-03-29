@@ -1,0 +1,36 @@
+---
+layout: default
+title: "Archives"
+---
+
+<h1 class="pagetitle">{{ page.title }}</h1>
+<div class="pagebody">
+	{% if site.posts.size > 0 %}
+	{% if site.categories.size > 0 %}
+	{% for cat in site.cats %}
+	<h2>{{ cat }}</h2>
+	<ul class="archives">
+		{% for entry in site.posts reversed %}
+		{% if entry.categories contains cat %}
+		<li>
+			<span class="date">[{{ entry.date | date_to_string }}]</span>
+			<a href="{{ entry.url }}">{{ entry.title }}</a>
+		</li>
+		{% endif %}
+		{% endfor %}
+	</ul>
+	{% endfor %}
+	<h2>Uncategorized</h2>
+	<ul class="archives">
+		{% for entry in site.posts %}
+		{% if entry.categories.size == 0 %}
+		<li>
+			<span class="date">[{{ entry.date | date_to_string }}]</span>
+			<a href="{{ entry.url }}">{{ entry.title }}</a>
+		</li>
+		{% endif %}
+		{% endfor %}
+	</ul>
+	{% endif %}
+	{% endif %}
+<div>

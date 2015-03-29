@@ -1,6 +1,0 @@
-#fadeTop {
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#00dddddd', GradientType=0 ); /* IE6-9 */
-}
-#fadeBottom {
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00dddddd', endColorstr='#dddddd', GradientType=0 ); /* IE6-9 */
-}
