@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+{% if site.posts.size > 0 %}
+{% for post in site.posts %}
+<div class="post">
+	<article>
+		<header>
+			<h1>{{ post.title }}</h1>
+			<span class="author">{{ post.author }}</span>
+			<span class="date">{{ post.date | date_to_string }}</span>
+		</header>
+		<section class="body">
+			{{ post.excerpt }}
+		</section>
+		<a href="{{ post.url }}">Continue reading &raquo;</a>
+	</article>
+</div>
+{% endfor %}
+{% else %}
+<div class="post"><h1>No Articles, sorry :(</h1></div>
+{% endif %}

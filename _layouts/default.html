@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% include head.html %}
+	</head>
+	<body>
+		<div id="site">
+		<div id="panel">
+			<header>
+				<h1 id="logo"><a href="/"><span class="open"><img src="/img/brace-top.png" height="70" width="266" /></span><span class="logotype"><span class="top">Enigmatic</span> <span class="bottom">Cryptography</span></span><span class="close"><img src="/img/brace-bottom.png" height="70" width="266" /></span></a></h1>
+				<p>{{ site.description }}</p>
+			</header>
+			<nav>
+				<ul>
+					{% for navitem in site.nav %}
+					<li><a href="{{ navitem.path }}">{{ navitem.title }}</a></li>
+					{% endfor %}
+				</ul>
+			</nav>
+			<footer>
+				{{ site.footer }}
+			</footer>
+		</div>
+		<div id="container">
+			{{ content }}
+		</div>
+		<div id="fadetop"></div>
+		<div id="fadebottom"></div>
+	</div>
+	</body>
+</html>

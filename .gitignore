@@ -1,7 +1,2 @@
-*.gem
-.bundle
-.config
-.sass-cache/*
-.DS_Store
-
-*.log
+_site
+.sass-cache

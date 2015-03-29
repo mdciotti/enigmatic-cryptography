@@ -1,0 +1,22 @@
+# Site settings
+title: Enigmatic Cryptography
+description: "insight into the craft of covert communication"
+baseurl: ""
+url: "http://crypto.mdc.io"
+exclude: [Cakefile, readme.md, Gemfile, Gemfile.lock]
+permalink: /:year/:month/:day/:title/
+disqus: enigmatic-cryptography
+
+# Build settings
+markdown: kramdown
+
+# Additional parameters
+cats: [overview, history, specifics, antisecurity, future]
+footer: "design &copy; max ciotti"
+nav:
+  - title: "All"
+    path: "/"
+  - title: "Archives"
+    path: "/archives"
+  - title: "About"
+    path: "/about"
