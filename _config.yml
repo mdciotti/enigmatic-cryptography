@@ -5,6 +5,7 @@ baseurl: ""
 url: "http://crypto.mdc.io"
 exclude: [Cakefile, readme.md, Gemfile, Gemfile.lock]
 permalink: /:year/:month/:day/:title/
+disqus: enigmatic-cryptography
 
 # Build settings
 markdown: kramdown
