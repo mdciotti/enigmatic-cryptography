@@ -1,4 +1,4 @@
-dorothy
-=======
+Enigmatic Cryptography
+======================
 
-A wonderful template for [toto](http://cloudhead.io/toto), the blogging engine.
+A blog detailing the my independent research project on the basics of cryptography.
